@@ -5,18 +5,18 @@ import PackageDescription
 
 // swiftlint:disable all
 let package = Package(
-    name: "SparkComponent___COMPONENT_NAME___",
+    name: "SparkComponentAvatar",
     platforms: [
         .iOS(.v16)
     ],
     products: [
         .library(
-            name: "SparkComponent___COMPONENT_NAME___",
-            targets: ["SparkComponent___COMPONENT_NAME___"]
+            name: "SparkComponentAvatar",
+            targets: ["SparkComponentAvatar"]
         ),
         .library(
-            name: "SparkComponent___COMPONENT_NAME___Testing",
-            targets: ["SparkComponent___COMPONENT_NAME___Testing"]
+            name: "SparkComponentAvatarTesting",
+            targets: ["SparkComponentAvatarTesting"]
         )
     ],
     dependencies: [
@@ -29,11 +29,16 @@ let package = Package(
            url: "https://github.com/leboncoin/spark-ios-theming.git",
            // path: "../spark-ios-theming"
            /*version*/ "0.0.1"..."999.999.999"
+       ),
+       .package(
+           url: "https://github.com/leboncoin/spark-ios-component-badge.git",
+           // path: "../spark-ios-component-badge"
+           /*version*/ "0.0.1"..."999.999.999"
        )
     ],
     targets: [
         .target(
-            name: "SparkComponent___COMPONENT_NAME___",
+            name: "SparkComponentAvatar",
             dependencies: [
                 .product(
                     name: "SparkCommon",
@@ -42,14 +47,18 @@ let package = Package(
                 .product(
                     name: "SparkTheming",
                     package: "spark-ios-theming"
+                ),
+                .product(
+                    name: "SparkComponentBadge",
+                    package: "spark-ios-component-badge"
                 )
             ],
             path: "Sources/Core"
         ),
         .target(
-            name: "SparkComponent___COMPONENT_NAME___Testing",
+            name: "SparkComponentAvatarTesting",
             dependencies: [
-                "SparkComponent___COMPONENT_NAME___",
+                "SparkComponentAvatar",
                 .product(
                     name: "SparkCommon",
                     package: "spark-ios-common"
@@ -70,10 +79,10 @@ let package = Package(
             path: "Sources/Testing"
         ),
         .testTarget(
-            name: "SparkComponent___COMPONENT_NAME___UnitTests",
+            name: "SparkComponentAvatarUnitTests",
             dependencies: [
-                "SparkComponent___COMPONENT_NAME___",
-                "SparkComponent___COMPONENT_NAME___Testing",
+                "SparkComponentAvatar",
+                "SparkComponentAvatarTesting",
                 .product(
                     name: "SparkCommonTesting",
                     package: "spark-ios-common"
@@ -86,10 +95,10 @@ let package = Package(
             path: "Tests/UnitTests"
         ),
         .testTarget(
-            name: "SparkComponent___COMPONENT_NAME___SnapshotTests",
+            name: "SparkComponentAvatarSnapshotTests",
             dependencies: [
-                "SparkComponent___COMPONENT_NAME___",
-                "SparkComponent___COMPONENT_NAME___Testing",
+                "SparkComponentAvatar",
+                "SparkComponentAvatarTesting",
                 .product(
                     name: "SparkCommonSnapshotTesting",
                     package: "spark-ios-common"
