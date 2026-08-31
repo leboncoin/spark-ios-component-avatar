@@ -31,8 +31,8 @@ final class AvatarGetTypographiesUseCase: AvatarGetTypographiesUseCaseable {
         case .xxxl:
             theme.typography.custom(
                 size: 64,
-                style: .bold,
-                textStyle: .largeTitle
+                weight: .bold,
+                style: .largeTitle
             )
         }
 

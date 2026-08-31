@@ -114,15 +114,15 @@ struct AvatarGetTypographiesUseCaseTests {
         )
 
         let expectedTypographies = AvatarTypographies(
-            placeholderFontToken: typographyMocked.customWithSizeAndStyleAndTextStyleReturnValue
+            placeholderFontToken: typographyMocked.customWithSizeAndWeightAndStyleReturnValue
         )
 
         // THEN
         #expect(result == expectedTypographies)
 
-        let arguments = try #require(typographyMocked.customWithSizeAndStyleAndTextStyleReceivedArguments)
+        let arguments = try #require(typographyMocked.customWithSizeAndWeightAndStyleReceivedArguments)
         #expect(arguments.size == 64)
-        #expect(arguments.style == .bold)
-        #expect(arguments.textStyle == .largeTitle)
+        #expect(arguments.weight == .bold)
+        #expect(arguments.style == .largeTitle)
     }
 }
